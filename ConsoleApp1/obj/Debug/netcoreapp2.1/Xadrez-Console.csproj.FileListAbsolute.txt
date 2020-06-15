@@ -1,0 +1,10 @@
+C:\JogodeXadrez\JogodeXadrez\ConsoleApp1\bin\Debug\netcoreapp2.1\Xadrez-Console.deps.json
+C:\JogodeXadrez\JogodeXadrez\ConsoleApp1\bin\Debug\netcoreapp2.1\Xadrez-Console.runtimeconfig.json
+C:\JogodeXadrez\JogodeXadrez\ConsoleApp1\bin\Debug\netcoreapp2.1\Xadrez-Console.runtimeconfig.dev.json
+C:\JogodeXadrez\JogodeXadrez\ConsoleApp1\bin\Debug\netcoreapp2.1\Xadrez-Console.dll
+C:\JogodeXadrez\JogodeXadrez\ConsoleApp1\bin\Debug\netcoreapp2.1\Xadrez-Console.pdb
+C:\JogodeXadrez\JogodeXadrez\ConsoleApp1\obj\Debug\netcoreapp2.1\Xadrez-Console.csproj.CoreCompileInputs.cache
+C:\JogodeXadrez\JogodeXadrez\ConsoleApp1\obj\Debug\netcoreapp2.1\Xadrez-Console.AssemblyInfoInputs.cache
+C:\JogodeXadrez\JogodeXadrez\ConsoleApp1\obj\Debug\netcoreapp2.1\Xadrez-Console.AssemblyInfo.cs
+C:\JogodeXadrez\JogodeXadrez\ConsoleApp1\obj\Debug\netcoreapp2.1\Xadrez-Console.dll
+C:\JogodeXadrez\JogodeXadrez\ConsoleApp1\obj\Debug\netcoreapp2.1\Xadrez-Console.pdb
