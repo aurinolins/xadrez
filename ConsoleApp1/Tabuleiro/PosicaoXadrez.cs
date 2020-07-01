@@ -14,7 +14,7 @@ namespace Tabuleiro
         }
         public Posicao Toposicao()
         {
-            return new Posicao(linha - 8, coluna - 'a');
+            return new Posicao(8 - linha , coluna - 'a');
         }
         public override string ToString()
         {
