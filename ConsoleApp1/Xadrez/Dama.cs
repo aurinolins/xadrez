@@ -41,14 +41,22 @@ namespace Xadrez
                         pos.Coluna--;
                     }
                 }
-                if ( ! tab.PosicaoValida(pos))
+                if (!tab.PosicaoValida(pos))
                 {
                     return false;
                 }
 
                 if (tab.peca(pos.Linha, pos.Coluna) == null)
                 {
-                    continue;
+                    if (pos.Linha == destino.Linha &&
+                      pos.Coluna == destino.Coluna)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        continue;
+                    }
                 }
                 if (tab.peca(pos.Linha, pos.Coluna).cor !=
                     tab.peca(origem.Linha, origem.Coluna).cor &&
@@ -62,7 +70,7 @@ namespace Xadrez
                     return false;
                 }
             }
-            return true;
+            return false;
 
         }
     }

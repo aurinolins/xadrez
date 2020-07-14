@@ -7,8 +7,8 @@ namespace Tabuleiro
     {
         public int linhas { get; set; }
         public int colunas { get; set; }
-        public Peca[,] pecas { get ; protected set; }
-        
+        public Peca[,] pecas { get; protected set; }
+
 
         public tabuleiro(int linhas, int colunas)
         {
@@ -36,7 +36,11 @@ namespace Tabuleiro
             {
                 throw new TabuleiroException("Posicão Já Tem uma Peça");
             }
-            pecas[pos.Linha, pos.Coluna] = P;
+            if (P != null)
+            {
+                pecas[pos.Linha, pos.Coluna] = P;
+                P.posicao = pos;
+            }
         }
         public Peca RetirarPeca(Posicao pos)
         {
@@ -61,7 +65,7 @@ namespace Tabuleiro
         }
         public void ValidarPosicao(Posicao pos)
         {
-            if ( ! PosicaoValida(pos))
+            if (!PosicaoValida(pos))
             {
                 throw new TabuleiroException("Posicao Invalida");
             }

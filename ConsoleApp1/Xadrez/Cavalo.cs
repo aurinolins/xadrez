@@ -16,25 +16,53 @@ namespace Xadrez
         }
         public override bool movimentospossiveis(tabuleiro tab, Posicao origem, Posicao destino)
         {
-            
+
             if (destino.Linha == origem.Linha || destino.Coluna == origem.Coluna)
             {
                 return false;
             }
 
-            if (destino.Linha > origem.Linha+2 || 
-                destino.Linha < origem.Linha-2 ||
+            if (destino.Linha > origem.Linha + 2 ||
+                destino.Linha < origem.Linha - 2 ||
                 destino.Coluna > origem.Coluna + 2 ||
                 destino.Coluna < origem.Coluna - 2)
             {
                 return false;
             }
-                        
+
+            if (destino.Linha == origem.Linha + 1 ||
+                 destino.Linha == origem.Linha - 1)
+            {
+                if (destino.Coluna == origem.Coluna + 2 ||
+                    destino.Coluna == origem.Coluna - 2)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            if (destino.Linha == origem.Linha + 2 ||
+                destino.Linha == origem.Linha - 2)
+            {
+                if (destino.Coluna == origem.Coluna + 1 ||
+                    destino.Coluna == origem.Coluna - 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
             if (tab.peca(destino.Linha, destino.Coluna) == null)
             {
                 return true;
             }
-           
+
             if (tab.peca(destino.Linha, destino.Coluna).cor !=
                 tab.peca(origem.Linha, origem.Coluna).cor)
             {

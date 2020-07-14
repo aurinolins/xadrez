@@ -21,7 +21,7 @@ namespace Xadrez
 
             Posicao pos = new Posicao(origem.Linha, origem.Coluna);
 
-            while (pos.Coluna != destino.Coluna)
+            while (pos.Linha != destino.Linha && pos.Coluna != destino.Coluna)
             {
                 if (destino.Linha > origem.Linha)
                 {
@@ -42,13 +42,22 @@ namespace Xadrez
                 }
                 if (!tab.PosicaoValida(pos))
                 {
-                    continue;
+                    return false;
                 }
 
                 if (tab.peca(pos.Linha, pos.Coluna) == null)
                 {
-                    continue;
+                    if (pos.Linha == destino.Linha &&
+                        pos.Coluna == destino.Coluna)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        continue;
+                    }
                 }
+
                 if (tab.peca(pos.Linha, pos.Coluna).cor !=
                     tab.peca(origem.Linha, origem.Coluna).cor &&
                     pos.Linha == destino.Linha &&
@@ -61,7 +70,7 @@ namespace Xadrez
                     return false;
                 }
             }
-            return true;
+            return false;
         }
     }
 }

@@ -5,8 +5,11 @@ namespace Xadrez
 {
     class Rei : Peca
     {
-        public Rei(tabuleiro tab, Cor cor) : base(tab, cor)
+        private PartidadeXadrez partida;
+
+        public Rei(tabuleiro tab, Cor cor, PartidadeXadrez partida) : base(tab, cor)
         {
+            this.partida = partida;
         }
 
         public override string ToString()
@@ -15,50 +18,63 @@ namespace Xadrez
         }
         public override bool movimentospossiveis(tabuleiro tab, Posicao origem, Posicao destino)
         {
-
-            bool[,] mat = new bool[tab.linhas, tab.colunas];
-
             Posicao pos = new Posicao(tab.linhas, tab.colunas);
 
+            /* Testar Rock Pequeno */
 
-            for (int i = origem.Linha - 1; i < origem.Linha+2; i++)
-            {
-                for (int j = origem.Coluna - 1; j < origem.Coluna+2; j++)
-                {
-                    pos.Linha = i;
-                    pos.Coluna = j;
-                    if ( !tab.PosicaoValida(pos))
-                    {
-                        continue;
-                    }
-
-                    if (tab.peca(i, j) == null)
-                    {
-                        mat[i, j] = true;
-                    }
-                    else
-                    {
-                        if (tab.peca(i, j).cor != tab.peca(origem.Linha,origem.Coluna).cor)
-                        {
-                            mat[i, j] = true;
-                        }
-                        else
-                        {
-                            mat[i, j] = false;
-                        }
-                       
-                    }
-                }
-            }
-
-            if (mat[destino.Linha, destino.Coluna])
+            if ( ! partida.emcheque &&
+                destino.Linha == origem.Linha && destino.Coluna == origem.Coluna + 2 &&
+                tab.pecas[origem.Linha, origem.Coluna].qteMovimentos == 0 &&
+                tab.pecas[origem.Linha, origem.Coluna + 3] is Torre &&
+                tab.pecas[origem.Linha, origem.Coluna + 3].qteMovimentos == 0 &&
+                tab.pecas[origem.Linha, origem.Coluna + 1] == null &&
+                tab.pecas[origem.Linha, origem.Coluna + 2] == null)
             {
                 return true;
             }
-            else
+
+            /* Testar Roque Grande */
+
+
+            if ( ! partida.emcheque &&
+                destino.Linha == origem.Linha && destino.Coluna == origem.Coluna - 2 &&
+                tab.pecas[origem.Linha, origem.Coluna].qteMovimentos == 0 &&
+                tab.pecas[origem.Linha, origem.Coluna - 4] is Torre &&
+                tab.pecas[origem.Linha, origem.Coluna - 4].qteMovimentos == 0 &&
+                tab.pecas[origem.Linha, origem.Coluna - 1] == null &&
+                tab.pecas[origem.Linha, origem.Coluna - 2] == null &&
+                tab.pecas[origem.Linha, origem.Coluna - 3] == null)
             {
-                return false;
+                return true;
             }
+
+            /* Logica Geral */
+
+            for (int i = origem.Linha - 1; i < origem.Linha + 2; i++)
+            {
+                for (int j = origem.Coluna - 1; j < origem.Coluna + 2; j++)
+                {
+                    pos.Linha = i;
+                    pos.Coluna = j;
+                    if (!tab.PosicaoValida(pos))
+                    {
+                        continue;
+                    }
+                    if (i == destino.Linha && j == destino.Coluna)
+                    {
+                        if (tab.pecas[i, j] == null || tab.pecas[i, j].cor !=
+                            tab.pecas[origem.Linha, origem.Coluna].cor)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return false;
         }
     }
 }
