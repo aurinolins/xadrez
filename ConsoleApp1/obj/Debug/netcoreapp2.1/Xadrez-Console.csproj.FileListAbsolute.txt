@@ -8,3 +8,4 @@ C:\JogodeXadrez\JogodeXadrez\ConsoleApp1\obj\Debug\netcoreapp2.1\Xadrez-Console.
 C:\JogodeXadrez\JogodeXadrez\ConsoleApp1\obj\Debug\netcoreapp2.1\Xadrez-Console.AssemblyInfo.cs
 C:\JogodeXadrez\JogodeXadrez\ConsoleApp1\obj\Debug\netcoreapp2.1\Xadrez-Console.dll
 C:\JogodeXadrez\JogodeXadrez\ConsoleApp1\obj\Debug\netcoreapp2.1\Xadrez-Console.pdb
+C:\JogodeXadrez\JogodeXadrez\ConsoleApp1\obj\Debug\netcoreapp2.1\Xadrez-Console.csprojAssemblyReference.cache

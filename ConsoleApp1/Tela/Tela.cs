@@ -65,7 +65,7 @@ namespace ConsoleApp1
                 {
                     Console.WriteLine("Atenção : Cheque Mate !!! ");
                     Console.WriteLine();
-                    Console.WriteLine("Partiuda Encerrada !!!");
+                    Console.WriteLine("Partida Encerrada !!!");
                     Console.ReadLine();
                     partida.encerrada = true;
                     return false;

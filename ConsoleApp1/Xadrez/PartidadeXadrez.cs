@@ -33,6 +33,11 @@ namespace Xadrez
             Peca pecacapturada = tab.RetirarPeca(destino);
             tab.ColocarPeca(p, destino);
 
+            if (pecacapturada != null)
+            {
+                pecacapturada.posicao = destino;
+            }
+
             if (tab.pecas[destino.Linha, destino.Coluna] is Peao &&
                  (destino.Linha == 0 || destino.Linha == 7))
             {
